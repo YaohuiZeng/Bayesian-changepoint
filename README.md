@@ -13,3 +13,5 @@ Taken from the OpenBUGS example: Stagnant - a changepoint problem and an illustr
  * Model 2: continuous prior for the changepoint value, x_k.
 * Stan_analysis.R
  * RStan implementation
+
+The implementations reproduce results from OpenBUGS.
