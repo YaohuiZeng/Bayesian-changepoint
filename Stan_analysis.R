@@ -1,3 +1,10 @@
+## Bayesian Course Project: Bayesian modeling for a changepoint problem
+## Yaohui Zeng <yaohui-zeng@uiowa.edu>, May 13, 2015
+
+## Taken from the OpenBUGS example:
+##      Stagnant: a changepoint problem and an illustration of how NOT
+##      to do MCMC!
+
 ## RStan implementation
 
 library(coda)
