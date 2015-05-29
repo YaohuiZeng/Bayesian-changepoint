@@ -1,5 +1,4 @@
-# Bayesian-changepoint
-Bayesian modeling of a changepoint problem with R implementation
+# Bayesian modeling of a changepoint problem with R implementation
 
 Bayesian Course Project: Bayesian modeling for a changepoint problem
 
