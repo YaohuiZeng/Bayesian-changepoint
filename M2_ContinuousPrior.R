@@ -138,8 +138,22 @@ gibbs.sampling.m2 <- function(para.init, seed, L = 1000,
         s2    = s2
       )
       xk <- arms(0, freject, support, pars=parss, 1)    
+    } else if (method == 3) { 
+      ## M-H algorithm, uniform proposal; not working!
+      cand <- runif(1, a, b)
+      cand.k <- sum(x <= cand)
+      
+      delta <- sum((Y[1:k] - alpha - beta1 * x[1:k] + beta1 * xk)^2) + 
+        sum((Y[(k+1):N] - alpha - beta2 * x[(k+1):N] + beta2 * xk)^2)
+      
+      cand.delta <- sum((Y[1:cand.k] - alpha - beta1 * x[1:cand.k] + beta1 * cand)^2) +
+        sum((Y[(cand.k+1):N] - alpha - beta2 * x[(cand.k+1):N] + beta2 * cand)^2)
+      
+      ln.r <- cand.delta - delta
+      
+      xk <- ifelse(runif(1) < exp(ln.r), cand, xk)    
     } else {
-      stop('Method must be equal 1 or 2. 1 = slice sampling; 2 = rejection sampling!')
+      stop('Method must be equal 1, 2 or 3. 1 = slice sampling; 2 = rejection sampling; 3 = metropolis hastings sampling.')
     }
     
     # Update index k
